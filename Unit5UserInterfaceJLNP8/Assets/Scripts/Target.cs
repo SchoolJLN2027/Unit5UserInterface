@@ -45,7 +45,7 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameManager.isGameActive)
+        if (gameManager.isGameActive && !gameManager.isPaused)
         {
             Destroy(gameObject);
             gameManager.UpdateScore(pointValue);
@@ -59,11 +59,7 @@ public class Target : MonoBehaviour
         if (!gameObject.CompareTag("Bad"))
         {
             gameManager.GameOver();
+            gameManager.UpdateLives(-1);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
