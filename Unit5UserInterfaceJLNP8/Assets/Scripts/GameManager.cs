@@ -71,12 +71,12 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.P) && !isPaused)
+        if (Input.GetKeyDown(KeyCode.P) && !isPaused)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0;
             isPaused = true;
         }
-        else if (Input.GetKey(KeyCode.P) && isPaused)
+        else if (Input.GetKeyDown(KeyCode.P) && isPaused)
         {
             Time.timeScale = 1.0f;
             isPaused = false;

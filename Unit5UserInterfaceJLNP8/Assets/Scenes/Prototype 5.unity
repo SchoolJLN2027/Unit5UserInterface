@@ -805,7 +805,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 27e47f6133cc40b49b24c8282788f591, type: 3}
@@ -1137,6 +1137,7 @@ MonoBehaviour:
   - {fileID: 179516328759761792, guid: a283533c313c04d4785df8e01bdc15ab, type: 3}
   titleScreen: {fileID: 1182490370}
   isGameActive: 0
+  isPaused: 0
   lives: 0
 --- !u!4 &856080634
 Transform:
