@@ -30,6 +30,7 @@ public class GameManagerX : MonoBehaviour
         spawnRate /= difficulty;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
+        StartCoroutine(UpdateTime());
         score = 0;
         time = 60;
         UpdateScore(0);
@@ -76,12 +77,21 @@ public class GameManagerX : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void UpdateTime(int timeToLose)
+    IEnumerator UpdateTime()
     {
-        time -= timeToLose;
-        timeText.text = "Time: " + time;
-
-       
+        while (isGameActive)
+        {
+            yield return new WaitForSeconds(1);
+            if (time > 0)
+            {
+                time -= 1;
+                timeText.text = "Time: " + time;
+            }
+            else if (time == 0)
+            {
+                GameOver();
+            }   
+        }
     }
 
     // Stop game, bring up game over text and restart button
@@ -98,17 +108,5 @@ public class GameManagerX : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void Update()
-    {  
-        if (time > 0)
-        {
-            time -= Time.deltaTime;
-            UpdateTime(1);
-        }
-        else if (time == 0)
-        {
-            GameOver();
-        }
-        
-    }
+
 }
